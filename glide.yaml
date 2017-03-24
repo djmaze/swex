@@ -1,0 +1,8 @@
+package: github.com/djmaze/shepherd
+import:
+- package: github.com/docker/docker
+  version: ~17.4.0-ce-rc1
+- package: github.com/urfave/cli
+  version: ~1.19.1
+- package: github.com/robfig/cron
+  version: ~1.0.0

@@ -1,0 +1,10 @@
+hash: 49a1ea0a8e5a5210392162bcec0f961088c9a3a6a02bfa08073c55fb54278646
+updated: 2017-03-23T16:49:04.223248453Z
+imports:
+- name: github.com/docker/docker
+  version: d2532c636f03ea12744c4aec62562d78e5cde8ae
+- name: github.com/robfig/cron
+  version: b024fc5ea0e34bc3f83d9941c8d60b0622bfaca4
+- name: github.com/urfave/cli
+  version: 0bdeddeeb0f650497d603c4ad7b20cfe685682f6
+testImports: []
