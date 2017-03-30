@@ -6,3 +6,6 @@ import:
   version: ~1.19.1
 - package: github.com/robfig/cron
   version: ~1.0.0
+- package: golang.org/x/net
+  subpackages:
+  - context
