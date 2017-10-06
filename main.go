@@ -5,13 +5,15 @@ import (
 	"log"
 	"os"
 
+	"github.com/go-yaml/yaml"
 	"github.com/urfave/cli"
 
+	"github.com/djmaze/shepherd/compose"
 	"github.com/djmaze/shepherd/swarm"
 )
 
 // DockerAPIMinVersion is the version of the docker API, which is minimally required by
-// watchtower. Currently we require at least API 1.24 and therefore Docker 1.12 or later.
+// swex. Currently we require at least API 1.26 and therefore Docker 1.13.1 or later.
 const DockerAPIMinVersion string = "1.26"
 
 var version = "master"
@@ -52,20 +54,35 @@ func before(c *cli.Context) error {
 		return err
 	}
 
+	return nil
+}
+
+func start(c *cli.Context) error {
 	client, err := swarm.NewClient()
 	if err != nil {
 		panic(err)
 	}
 
-	services, err := client.ListServices()
-	for _, service := range services {
-		fmt.Printf("%v\n", service)
+	swarmServices, err := client.ListServices()
+	composeServiceCollection := compose.ServiceCollectionFromSwarmServices(swarmServices)
+	stacks := composeServiceCollection.Stacks()
+
+	for _, stack := range stacks {
+		file, err := os.Create(stack.Name + ".yml")
+		if err != nil {
+			return err
+		}
+
+		y, err := yaml.Marshal(stack)
+		if err != nil {
+			return err
+		}
+		file.WriteString(string(y))
+		file.Close()
 	}
 
-	return nil
-}
+	fmt.Printf("Exported %d stacks\n", len(stacks))
 
-func start(c *cli.Context) error {
 	return nil
 }
 

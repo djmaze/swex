@@ -1,5 +1,5 @@
-hash: 73d54a5992251c9ba66930912d53c98f536506fb4abb3264d0fca7be11f56e45
-updated: 2017-03-30T15:25:03.775283686Z
+hash: c34bd79799ca0df892a3c1831321916daa83b10adb2fc016dae0a1aa790a7bd5
+updated: 2017-10-06T23:47:25.359764716Z
 imports:
 - name: github.com/docker/distribution
   version: 0700fa570d7bcc1b3e46ee127c4489fd25f4daa3
@@ -39,14 +39,14 @@ imports:
   version: 0dadbb0345b35ec7ef35e228dabb8de89a65bf52
 - name: github.com/docker/libtrust
   version: aabc10ec26b754e797f9028f4589c5b7bd90dc20
+- name: github.com/go-yaml/yaml
+  version: eb3733d160e74a9c7e442f435eb3bea458e1d19f
 - name: github.com/Microsoft/go-winio
   version: fff283ad5116362ca252298cfc9b95828956d85d
 - name: github.com/opencontainers/go-digest
   version: aa2ec055abd10d26d539eb630a92241b781ce4bc
 - name: github.com/pkg/errors
   version: ff09b135c25aae272398c51a07235b90a75aa4f0
-- name: github.com/robfig/cron
-  version: b024fc5ea0e34bc3f83d9941c8d60b0622bfaca4
 - name: github.com/Sirupsen/logrus
   version: 10f801ebc38b33738c9d17d50860f484a0988ff5
 - name: github.com/urfave/cli

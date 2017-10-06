@@ -11,4 +11,4 @@ WORKDIR ${APP_DIR}
 COPY glide.yaml glide.lock ${APP_DIR}/
 RUN glide install
 
-VOLUME ${APP_DIR}/vendor
+#VOLUME ${APP_DIR}/vendor

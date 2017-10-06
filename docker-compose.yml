@@ -6,3 +6,4 @@ services:
     image: shepherd
     volumes:
       - .:/go/src/github.com/djmaze/shepherd
+      - /var/run/docker.sock:/var/run/docker.sock:ro
