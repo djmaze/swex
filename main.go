@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+  "path/filepath"
 
 	"github.com/go-yaml/yaml"
 	"github.com/urfave/cli"
@@ -28,6 +29,11 @@ func main() {
 	app.Before = before
 	app.Action = start
 	app.Flags = []cli.Flag{
+    cli.StringFlag{
+      Name:   "output-directory, O",
+      Usage:  "output directory for service files",
+      Value:  ".",
+    },
 		cli.StringFlag{
 			Name:   "host, H",
 			Usage:  "daemon socket to connect to",
@@ -63,12 +69,14 @@ func start(c *cli.Context) error {
 		panic(err)
 	}
 
+  outputDirectory := c.GlobalString("output-directory")
+
 	swarmServices, err := client.ListServices()
 	composeServiceCollection := compose.ServiceCollectionFromSwarmServices(swarmServices)
 	stacks := composeServiceCollection.Stacks()
 
 	for _, stack := range stacks {
-		file, err := os.Create(stack.Name + ".yml")
+		file, err := os.Create(filepath.Join(outputDirectory, stack.Name + ".yml"))
 		if err != nil {
 			return err
 		}
