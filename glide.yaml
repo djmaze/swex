@@ -1,4 +1,4 @@
-package: github.com/djmaze/shepherd
+package: github.com/djmaze/swex
 import:
 - package: github.com/docker/docker
   subpackages:

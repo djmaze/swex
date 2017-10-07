@@ -3,7 +3,7 @@ package compose
 import (
 	"strings"
 
-	"github.com/djmaze/shepherd/swarm"
+	"github.com/djmaze/swex/swarm"
 )
 
 type ComposeService struct {

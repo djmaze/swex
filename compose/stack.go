@@ -1,7 +1,7 @@
 package compose
 
 import (
-	"github.com/djmaze/shepherd/swarm"
+	"github.com/djmaze/swex/swarm"
 )
 
 const ComposeFileVersion string = "3.2"

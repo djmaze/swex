@@ -8,8 +8,8 @@ import (
 	"github.com/go-yaml/yaml"
 	"github.com/urfave/cli"
 
-	"github.com/djmaze/shepherd/compose"
-	"github.com/djmaze/shepherd/swarm"
+	"github.com/djmaze/swex/compose"
+	"github.com/djmaze/swex/swarm"
 )
 
 // DockerAPIMinVersion is the version of the docker API, which is minimally required by
@@ -24,7 +24,7 @@ var (
 
 func main() {
 	app := cli.NewApp()
-	app.Name = "shepherd"
+	app.Name = "swex"
 	app.Before = before
 	app.Action = start
 	app.Flags = []cli.Flag{

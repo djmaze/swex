@@ -3,7 +3,7 @@ version: '3'
 services:
   app:
     build: .
-    image: shepherd
+    image: swex
     volumes:
-      - .:/go/src/github.com/djmaze/shepherd
+      - .:/go/src/github.com/djmaze/swex
       - /var/run/docker.sock:/var/run/docker.sock:ro
